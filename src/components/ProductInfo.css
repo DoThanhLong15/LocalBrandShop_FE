@@ -1,0 +1,20 @@
+
+
+.info-container {
+    margin-bottom: 20px;
+  }
+  
+  .product-name {
+    font-size: 24px;
+  }
+  
+  .product-price {
+    font-size: 22px;
+    color: red;
+  }
+  
+  .product-reviews {
+    font-size: 14px;
+    color: gray;
+  }
+  
