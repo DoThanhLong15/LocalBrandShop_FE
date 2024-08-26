@@ -1,0 +1,21 @@
+/* src/components/UserProfileLinks.css */
+.user-profile-links {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-link {
+    display: block;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+  
+  .profile-link:hover {
+    background-color: #0056b3;
+  }
+  

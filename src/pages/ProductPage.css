@@ -1,0 +1,16 @@
+/* src/pages/ProductPage.css */
+
+.product-page-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .product-image-container {
+    width: 60%;
+  }
+  
+  .product-info-container {
+    width: 35%;
+  }
+  
