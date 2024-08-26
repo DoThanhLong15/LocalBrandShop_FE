@@ -1,0 +1,65 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+  }
+  
+  .navbar-logo a {
+    color: #8a56ac;
+    font-weight: bold;
+    font-size: 24px;
+    text-decoration: none;
+  }
+  
+  .navbar-menu a {
+    color: black;
+    text-decoration: none;
+    margin-left: 70px;
+  }
+  
+  .navbar-search {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
+  .navbar-search input {
+    width: 100%;
+    padding: 5px 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .navbar-search button {
+    background-color: transparent;
+    border: none;
+    margin-left: -30px;
+    cursor: pointer;
+  }
+  
+  .navbar-search button i {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .navbar-info a {
+    color: black;
+    text-decoration: none;
+    margin-right: 100px;
+  }
+  
+  .navbar-cart button {
+    background-color: #8a56ac;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .navbar-cart button:hover {
+    background-color: #732b8e;
+  }
+  
