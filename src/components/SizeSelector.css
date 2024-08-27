@@ -1,0 +1,28 @@
+/* src/components/SizeSelector.css */
+
+.size-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .size-label {
+    margin-right: 10px;
+  }
+  
+  .size-button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .size-button.selected {
+    background-color: #ddd;
+  }
+  
+  .size-button:hover {
+    background-color: #f5f5f5;
+  }
+  
