@@ -1,28 +1,39 @@
-// src/pages/ProductPage.js
-import React, { useState } from 'react';
-import ProductImageCarousel from '../components/ProductImageCarousel';
-import ProductInfo from '../components/ProductInfo';
-import SizeSelector from '../components/SizeSelector';
-import QuantitySelector from '../components/QuantitySelector';
-import AddToCartButton from '../components/AddToCartButton';
-import './ProductPage.css';
+import React, { useEffect, useState } from "react";
+import ProductImageCarousel from "../components/ProductImageCarousel";
+import ProductInfo from "../components/ProductInfo";
+import SizeSelector from "../components/SizeSelector";
+import QuantitySelector from "../components/QuantitySelector";
+import AddToCartButton from "../components/AddToCartButton";
+import "./ProductPage.css";
+import { useParams } from "react-router-dom";
+import APIs, { endpoints } from "../config/APIs";
 
 const ProductPage = () => {
-  const [selectedSize, setSelectedSize] = useState('M');
+  const [selectedSize, setSelectedSize] = useState("M");
   const [quantity, setQuantity] = useState(1);
 
-  const product = {
-    name: 'Áo khoác Parka chống tia UV',
-    price: '784.000',
-    reviews: '4.5',
-    sizes: ['XS', 'S', 'M', 'L', 'XL'],
-    images: [
-      'image1-url',
-      'image2-url',
-      'image3-url',
-      'image4-url',
-    ],
+  const [product, setProduct] = useState(null);
+  const { productId } = useParams();
+
+  const loadProduct = async () => {
+    try {
+      let url = `${endpoints["products"]}/${productId}/`;
+
+      console.log(url);
+
+      let res = await APIs.get(url);
+
+      console.info(res.data.data);
+
+      setProduct(res.data.data);
+    } catch (ex) {
+      console.error(ex);
+    }
   };
+
+  useEffect(() => {
+    loadProduct();
+  }, []);
 
   const handleAddToCart = () => {
     alert(`Added ${quantity} of size ${selectedSize} to the cart!`);
@@ -30,19 +41,16 @@ const ProductPage = () => {
 
   return (
     <div className="product-page-container">
-      <div className="product-image-container">
-        <ProductImageCarousel images={product.images} />
-      </div>
-      <div className="product-info-container">
-        <ProductInfo product={product} />
-        <SizeSelector
-          sizes={product.sizes}
-          selectedSize={selectedSize}
-          onSizeChange={setSelectedSize}
-        />
-        <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
-        <AddToCartButton onAddToCart={handleAddToCart} />
-      </div>
+      {product && (
+        <>
+          <div className="product-image-container">
+            <ProductImageCarousel images={product.productImage} />
+          </div>
+          <div className="product-info-container">
+            <ProductInfo product={product} />
+          </div>
+        </>
+      )}
     </div>
   );
 };
