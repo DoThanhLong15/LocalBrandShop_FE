@@ -6,7 +6,7 @@ const ProductImageCarousel = ({ images }) => {
   return (
     <div className="carousel-container">
       {images.map((image, index) => (
-        <img key={index} src={image} alt={`Product ${index + 1}`} />
+        <img key={index} src={image.image} alt={`Product ${index + 1}`} />
       ))}
     </div>
   );
